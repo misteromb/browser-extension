@@ -10,6 +10,7 @@ Features
 * Add a +1 to issues without a spammy comment.
 * Automatically hide "+1" comments. (coming very soon!)
 * Supports GitHub, LaunchPad, Bugzilla, and Trac trackers
+* Works with Chrome, Firefox, and Midori browsers
 
 Contributing
 -----------

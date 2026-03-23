@@ -1,4 +1,4 @@
-// GOOGLE CHROME - load javascript dependencies via script tag
+// GOOGLE CHROME / MIDORI - load javascript dependencies via script tag
 // FIREFOX - do nothing... these are loaded via bountysource_server.js
 (function() {
   var scripts = ['../bountysource_client.js', 'application.js'];

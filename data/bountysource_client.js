@@ -1,6 +1,14 @@
 // Cross-browser helpers to be used in popups and content-scripts
 var BountysourceClient = {
-  browser: typeof(chrome)!=='undefined' ? 'chrome' : 'firefox',
+  browser: (function() {
+    if (typeof(chrome) !== "undefined") {
+      if (navigator.userAgent.indexOf("Midori") !== -1) {
+        return "midori";
+      }
+      return "chrome";
+    }
+    return "firefox";
+  })(),
 
   // Computes path to extension hosted image
   imagePath: function(image) {
@@ -20,7 +28,7 @@ var BountysourceClient = {
       callback = options.callback;
       delete options.callback;
     }
-    if (BountysourceClient.browser === 'chrome') {
+    if (BountysourceClient.browser === 'chrome' || BountysourceClient.browser === 'midori') {
       chrome.runtime.sendMessage(options, callback);
     } else if (BountysourceClient.browser === 'firefox') {
       options.callback_str = "callback_" + (new Date()).getTime();
